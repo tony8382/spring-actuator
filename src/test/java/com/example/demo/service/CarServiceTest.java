@@ -13,4 +13,14 @@ class CarServiceTest extends SpringActuatorApplicationTests {
     void manufacturerFactory() {
         carService.manufacturerFactory();
     }
+
+    @Test
+    void carBeautyStrategy() {
+        carService.carBeautyStrategy();
+    }
+
+    @Test
+    void carBuilderChain() {
+        carService.carBuilderChain();
+    }
 }

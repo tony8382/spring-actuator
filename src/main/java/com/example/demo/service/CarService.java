@@ -1,5 +1,8 @@
 package com.example.demo.service;
 
+import com.example.demo.model.Car;
+import com.example.demo.service.beautyStrategy.DoMore;
+import com.example.demo.service.chainOfResponsibility.CarBuilderChain;
 import com.example.demo.service.manufacturerFactory.Manufacturer;
 import com.example.demo.service.manufacturerFactory.SpringManufacturerFactory;
 import com.example.demo.service.manufacturerFactory.enums.CarType;
@@ -13,15 +16,31 @@ import org.springframework.stereotype.Service;
 public class CarService {
 
     private final SpringManufacturerFactory manufacturerFactory;
+    private final CarBuilderChain carBuilderChain;
+
+    private final DoMore doMore;
 
     public void manufacturerFactory() {
-        Manufacturer manufacturer = null;
         try {
-            manufacturer = manufacturerFactory.create(CarType.BMW);
+            Manufacturer manufacturer = manufacturerFactory.create(CarType.BMW);
+            log.info("brand: {}", manufacturer.getBrand());
         } catch (Exception e) {
             log.error("can not create factory", e);
         }
-        log.info("brand: {}", manufacturer.getBrand());
+    }
 
+    public void carBeautyStrategy() {
+        Car car = Car.builder()
+                .brand("MAZDA")
+                .color("White")
+                .year(2020)
+                .build();
+
+        car.setBeauty(doMore);
+        car.getBeauty().execute();
+    }
+
+    public void carBuilderChain() {
+        carBuilderChain.buildCar();
     }
 }
