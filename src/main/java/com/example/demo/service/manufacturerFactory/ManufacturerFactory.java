@@ -1,6 +1,6 @@
 package com.example.demo.service.manufacturerFactory;
 
-import com.example.demo.enums.CarType;
+import com.example.demo.service.manufacturerFactory.enums.CarType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,6 @@ public class ManufacturerFactory {
     private final Bmw bmw;
     private final Tesla tesla;
     private final Mazda mazda;
-
 
     public Manufacturer create(CarType car) throws Exception {
         switch (car) {

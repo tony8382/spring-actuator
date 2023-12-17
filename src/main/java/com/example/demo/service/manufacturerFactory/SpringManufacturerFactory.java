@@ -1,6 +1,6 @@
 package com.example.demo.service.manufacturerFactory;
 
-import com.example.demo.enums.CarType;
+import com.example.demo.service.manufacturerFactory.enums.CarType;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
