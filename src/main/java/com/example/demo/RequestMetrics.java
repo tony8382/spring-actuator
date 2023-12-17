@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Component
-public class DynamicThreadPoolExecutorMetrics implements MeterBinder {
+public class RequestMetrics implements MeterBinder {
 
 
     private MeterRegistry meterRegistry;
